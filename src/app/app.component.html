@@ -1,0 +1,61 @@
+<mat-toolbar>
+  <mat-toolbar-row class="header">
+    <span class="input">
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search" [formControl]="filterControl" />
+        <mat-icon matSuffix (click)="onClearFilter()" class="icon"
+          >close</mat-icon
+        >
+      </mat-form-field>
+    </span>
+    <span class="example-spacer"></span>
+    <button
+      mat-fab
+      color="accent"
+      aria-label="Example icon button with a bookmark icon"
+      (click)="openDialog('add', null)"
+    >
+      <mat-icon>add </mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- <button (click)="onFilter()">Filter</button> -->
+<div class="tb">
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <tr *ngFor="let user of filteredList">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.address }}</td>
+      <td>
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="openDialog('edit', user)"
+        >
+          Update
+        </button>
+      </td>
+      <td>
+        <button mat-flat-button color="warn" (click)="onDelete(user.id)">
+          Delete
+        </button>
+      </td>
+    </tr>
+    <!-- <tr>
+      <td>Centro comercial Moctezuma</td>
+      <td>Francisco Chang</td>
+      <td>Mexico</td>
+    </tr> -->
+  </table>
+</div>
