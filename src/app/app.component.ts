@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
   }
 
   openDialog(action: string, editData: any) {
-    console.log(editData);
     const dialogRef = this.dialog.open(DialogExampleComponent, {
       data: {
         action: action,
@@ -42,7 +41,6 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      // console.log(result);
       if (action === 'add' && result != null) {
         this.service.postUser(result).subscribe((res) => this.getAllUser());
       } else if (action === 'edit' && result != null) {
