@@ -31,7 +31,14 @@
       >
         Submit
       </button>
-      <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+      <button
+        mat-raised-button
+        color="warn"
+        mat-dialog-close
+        (click)="onCancle()"
+      >
+        Cancel
+      </button>
     </mat-dialog-actions>
   </form>
 </mat-dialog-content>
