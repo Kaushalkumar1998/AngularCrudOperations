@@ -13,9 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogExampleComponent } from './dialog-example/dialog-example.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [AppComponent, DialogExampleComponent],
+  declarations: [AppComponent, DialogExampleComponent, HomeComponent],
   entryComponents: [DialogExampleComponent],
   imports: [
     BrowserModule,
