@@ -15,16 +15,18 @@
       color="accent"
       aria-label="Example icon button with a bookmark icon"
       (click)="openDialog('add', null)"
+      matTooltip="Add User To The List"
+      aria-label="Button that displays a tooltip when focused or hovered over"
     >
       <mat-icon>add </mat-icon>
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<!-- <button (click)="onFilter()">Filter</button> -->
 <div class="tb">
   <table>
     <tr>
+      <th>S.No</th>
       <th>Id</th>
       <th>Name</th>
       <th>Age</th>
@@ -34,6 +36,7 @@
     </tr>
     <tr *ngFor="let user of filteredList">
       <td>{{ user.id }}</td>
+      <td>{{ user.id }}</td>
       <td>{{ user.name }}</td>
       <td>{{ user.age }}</td>
       <td>{{ user.address }}</td>
@@ -42,15 +45,25 @@
           mat-flat-button
           color="primary"
           (click)="openDialog('edit', user)"
+          matTooltip="Update The User Info"
+          aria-label="Button that displays a tooltip when focused or hovered over"
         >
           Update
         </button>
       </td>
       <td>
-        <button mat-flat-button color="warn" (click)="onDelete(user.id)">
+        <button
+          mat-flat-button
+          color="warn"
+          (click)="deleteDialogOpen('2000ms', '', 'delete', user.id)"
+          matTooltip="Are You Sure About it?"
+          aria-label="Button that displays a tooltip when focused or hovered over"
+        >
           Delete
         </button>
       </td>
     </tr>
   </table>
 </div>
+
+<!-- (click)="onDelete(user.id)" -->

@@ -1,0 +1,18 @@
+<h1 mat-dialog-title style="text-align: center; color: brown">
+  Delete User !!
+</h1>
+<div
+  mat-dialog-content
+  style="font-size: large; font-weight: 600; color: black"
+>
+  This Action Cannot Be Reverted!!
+</div>
+<div
+  mat-dialog-actions
+  style="display: flex; align-items: center; justify-content: center"
+>
+  <button mat-fab extended color="warn" (click)="deleteConfirmation()">
+    Sure !!
+  </button>
+  <button mat-fab extended mat-dialog-close>Cancel</button>
+</div>

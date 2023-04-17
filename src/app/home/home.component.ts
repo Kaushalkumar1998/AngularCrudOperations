@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ServiceService } from '../Service/service.service';
 import { DialogExampleComponent } from '../dialog-example/dialog-example.component';
+import { DialogDeleteComponent } from '../dialog-delete/dialog-delete.component';
 
 @Component({
   selector: 'app-home',
@@ -54,6 +55,30 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  deleteDialogOpen(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string,
+    action: string,
+    deleteData: any
+  ) {
+    const dialogRef = this.dialog.open(DialogDeleteComponent, {
+      data: {
+        action: action,
+        deleteData: deleteData,
+      },
+      disableClose: true,
+      width: '350px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (action === 'delete' && result != null) {
+        result = deleteData;
+        this.service.deleteData(result).subscribe(() => this.getAllUser());
+      }
+    });
+  }
+
   onFilter() {
     this.filterControl.valueChanges.subscribe((res) => {
       if (res != '') {
@@ -69,12 +94,5 @@ export class HomeComponent implements OnInit {
   onClearFilter() {
     this.filteredList = this.allusers;
     this.filterControl.setValue('');
-  }
-
-  onDelete(id: number) {
-    this.service.deleteData(id).subscribe({
-      next: () => this.getAllUser(),
-      error: () => alert('something Wrong'),
-    });
   }
 }

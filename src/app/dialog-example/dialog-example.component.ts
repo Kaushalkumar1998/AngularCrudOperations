@@ -41,7 +41,8 @@ export class DialogExampleComponent implements OnInit {
   saveData() {
     this.dialogRef.close(this.userForm.value);
   }
-  onCancle() {
+
+  onCancel() {
     this.dialogRef.close();
   }
 }
