@@ -11,8 +11,16 @@
   mat-dialog-actions
   style="display: flex; align-items: center; justify-content: center"
 >
-  <button mat-fab extended color="warn" (click)="deleteConfirmation()">
+  <button
+    mat-fab
+    extended
+    color="warn"
+    (click)="deleteConfirmation()"
+    matTooltip="Data Will Be Deleted"
+  >
     Sure !!
   </button>
-  <button mat-fab extended mat-dialog-close>Cancel</button>
+  <button mat-fab extended mat-dialog-close matTooltip="Cancel delete Action">
+    Cancel
+  </button>
 </div>

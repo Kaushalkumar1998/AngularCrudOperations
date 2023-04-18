@@ -55,26 +55,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  deleteDialogOpen(
-    enterAnimationDuration: string,
-    exitAnimationDuration: string,
-    action: string,
-    deleteData: any
-  ) {
+  deleteDialogOpen(id: number) {
     const dialogRef = this.dialog.open(DialogDeleteComponent, {
-      data: {
-        action: action,
-        deleteData: deleteData,
-      },
       disableClose: true,
       width: '350px',
-      enterAnimationDuration,
-      exitAnimationDuration,
     });
     dialogRef.afterClosed().subscribe((result) => {
-      if (action === 'delete' && result != null) {
-        result = deleteData;
-        this.service.deleteData(result).subscribe(() => this.getAllUser());
+      if (result) {
+        this.service.deleteData(id).subscribe(() => this.getAllUser());
       }
     });
   }

@@ -3,8 +3,17 @@
     <span class="input">
       <mat-form-field appearance="outline">
         <mat-label>Search</mat-label>
-        <input matInput placeholder="Search" [formControl]="filterControl" />
-        <mat-icon matSuffix (click)="onClearFilter()" class="icon"
+        <input
+          matInput
+          placeholder="Search"
+          [formControl]="filterControl"
+          matTooltip="Filter List"
+        />
+        <mat-icon
+          matSuffix
+          (click)="onClearFilter()"
+          class="icon"
+          matTooltip="Clear search"
           >close</mat-icon
         >
       </mat-form-field>
@@ -22,6 +31,7 @@
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
+<mat-card> </mat-card>
 
 <div class="tb">
   <table>
@@ -55,7 +65,7 @@
         <button
           mat-flat-button
           color="warn"
-          (click)="deleteDialogOpen('2000ms', '', 'delete', user.id)"
+          (click)="deleteDialogOpen(user.id)"
           matTooltip="Are You Sure About it?"
           aria-label="Button that displays a tooltip when focused or hovered over"
         >
